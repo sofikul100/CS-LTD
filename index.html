@@ -12,16 +12,148 @@
     <!-- GOOGLE FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Poppins:wght@100;200;300;500&family=Raleway:wght@100;200;300&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Poppins:wght@100;200;300;500&family=Raleway:wght@100;200;300&family=Rubik:wght@300;400&display=swap"
+        rel="stylesheet">
     <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- for fontawesome i have used herosicon. link--- https://heroicons.com/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
 </head>
 
 <body>
+<!-- ================== header start================== -->
+    <header>
+        <div class="bg-grayDark" x-data="{ atTop: true }"
+            x-on:scroll.window="atTop =( window.pageYOffset > 10) ? false : true ">
+            <!-- Navbar -->
+            <div class="w-full text-gray-700 bg-white  fixed top-0 animated z-40"
+                x-bind:class='{ "bg-black shadow-lg transition": !atTop }'>
+                <div x-data="{ open: false }">
+                    <div class="p-4 flex  items-center justify-between">
+                        <div> <a href="index.html"
+                                class="tracking-widest rounded-lg focus:outline-none focus:shadow-outline">
+                                <img src="./public/images/bdtask-logo.jpg" alt="logo" class="md:w-32 md:h-12 w-32 h-12">
+                            </a>
+                        </div>
 
-    <h1 class="font-extrabold text-center text-[25px] text-blue-600">hello world.....</h1>
+                        <div class="hidden md:flex space-x-6 text-black text-[15px]">
+                            <a href="home.html"
+                                class="hover:bg-green-500 hover:text-white hover:px-2 hover:font-normal  hover:rounded-sm transition-all">Home</a>
+                            <a href=""
+                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">About</a>
+                            <a href=""
+                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">Services</a>
+                            <a href=""
+                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">Software
+                                <span class="text-[13px] font-normal"><i class="fa fa-chevron-down" aria-hidden="true"></i></span> </a>
+                            <a href=""
+                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">Blog</a>
+                            <a href=""
+                                class="hover:bg-green-500 hover:text-white hover:px-2 hover:font-normal  hover:rounded-sm transition-all">Contact
+                                Us</a>
+                        </div>
+                        <div class="hidden md:flex">
+                            <div
+                                class="bg-green-500 px-4 py-2  text-[13px] text-white rounded-full hover:bg-transparent hover:text-black hover:border hover:rounded-full transition-all cursor-pointer">
+                                <a href="">GET A QUOTE</a>
+                            </div>
+                        </div>
+                        <!-- Button Mobile Nav -->
+                        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
+                            @click="open = !open">
+                            <span class="text-lg text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                                </svg>
 
-    <i class="fa-brands fa-facebook-f"></i>
+                            </span>
+                        </button>
+
+                        <!-- End Button Mobile Nav -->
+                    </div>
+
+                    <!-- Navbar Mobile -->
+                    <nav :class="{'flex': open, 'hidden': !open}"
+                        class="flex-col flex-grow pb-4 hidden bg-white shadow-lg rounded-b text-[15px]">
+                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:font-normal hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                            href="#">Home</a>
+                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg transition-all text-sm hover:font-normal font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500  focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                            href="#">About Us</a>
+                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  hover:font-normal text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                            href="#">Services</a>
+                            <a href=""
+                            class="block px-4 py-2 mt-2  bg-transparent rounded-lg  hover:font-normal text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Software
+                            <span class="text-[13px] font-normal"><i class="fa fa-chevron-down" aria-hidden="true"></i></span> </a>    
+                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  hover:font-normal text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                            href="#">Blog</a>
+                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg hover:font-normal  text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                            href="#">Contact</a>
+                    </nav>
+                    <!-- End Navbar Mobile -->
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- ===============header end=============== -->
+
+
+
+
+    <div class="mt-10">
+
+        <h1 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, maxime. Dolorum odit
+            veniam repellendus. Nam
+            consequatur maxime reiciendis veritatis cum eius illum debitis fugit ducimus voluptates ipsum perspiciatis,
+            ad amet quisquam nisi? Quam error dicta deleniti provident perferendis sit, repellendus perspiciatis eveniet
+            enim veritatis rem, optio hic assumenda. Quibusdam recusandae itaque temporibus exercitationem repudiandae
+            nihil sequi consectetur repellat officiis nisi rem inventore similique accusamus id, sapiente iure iste
+            debitis aspernatur quos neque vero. Necessitatibus ratione aut in odio quas vitae autem quam illo iusto
+            quisquam recusandae suscipit dolor, possimus eveniet incidunt sit culpa rem error sunt sed dolores sequi ea
+            magni magnam! Est, sequi odio recusandae similique rem nam cum illo quae consequatur ab nihil magni possimus
+            et doloribus aspernatur asperiores culpa cupiditate debitis repudiandae voluptates nostrum! Rem, officiis
+            libero voluptatibus nemo aliquid in omnis cum quod laborum sed nisi expedita, fuga pariatur enim odio
+            commodi velit dolorem cupiditate asperiores consequuntur impedit! Perspiciatis earum aspernatur dignissimos
+            ducimus amet! Voluptates quisquam, nisi ducimus, fugit asperiores repellat dolores beatae similique
+            explicabo aspernatur harum enim ratione, sit quidem non necessitatibus eos veritatis est eius quos
+            accusantium? Ut voluptatibus beatae quidem aperiam rem delectus possimus obcaecati qui aliquid fugit
+            eligendi veritatis dolorem sunt exercitationem iste, ratione ipsam aut magnam voluptatem nihil labore! Quas
+            nisi adipisci minus obcaecati eaque nihil cumque labore delectus, distinctio animi, nesciunt porro vel
+            assumenda alias molestias quia sequi ipsum voluptates aperiam aliquid iure ea iste enim ipsam. Nulla
+            repellat, eveniet ratione dignissimos porro quo assumenda nisi eaque ab harum vero neque quas quidem
+            placeat. Unde optio quia, maiores distinctio sapiente fugiat eaque tempore consequatur nobis atque. Delectus
+            officia, nulla illo numquam dolorum consequuntur quis error, sunt ut, est esse inventore deleniti! Veritatis
+            aspernatur distinctio eius temporibus praesentium quibusdam repellat ducimus voluptatem. Quisquam quasi
+            temporibus explicabo dolore! Mollitia sunt accusantium perferendis. Quidem pariatur eum placeat eos
+            quibusdam atque veritatis aut vitae cumque quos tempora culpa temporibus ea facilis distinctio eligendi
+            quas, dolorem minus voluptas dolore. Aliquid earum quasi a dolore fugit recusandae ipsa soluta enim autem
+            perferendis, omnis, dolores eos est nemo laudantium excepturi exercitationem eius deleniti. Aut delectus
+            blanditiis ducimus, commodi assumenda quisquam fuga corporis a velit. Autem accusamus sint maxime tempora
+            facilis repellendus dolores numquam debitis itaque nihil. Expedita amet reprehenderit dignissimos nisi in
+            repudiandae similique, autem natus ratione eius iure repellendus quod veritatis, accusamus provident!
+            Dolores at, quisquam similique totam voluptatibus eligendi impedit. Aliquid cupiditate tempora corrupti aut
+            tempore dignissimos optio, praesentium ut quod ipsa odit explicabo suscipit blanditiis quibusdam porro
+            itaque beatae! Deleniti repellendus recusandae error quidem blanditiis, ad quisquam nisi voluptatem modi.
+            Nisi quod dolorem pariatur cum, repudiandae, sequi eligendi iusto nihil rerum autem vel! Dolore natus
+            molestias corrupti voluptatum pariatur omnis officiis ipsum dolor. Vitae labore voluptas molestias
+            dignissimos doloremque accusantium quod mollitia ipsa autem earum cupiditate sint accusamus, aspernatur
+            numquam laudantium esse sunt placeat consequatur ratione qui iusto? Ea corporis explicabo officia saepe
+            commodi praesentium nulla facilis repellat beatae! Autem quibusdam consectetur tempore porro eveniet facilis
+            commodi labore nisi nihil! Saepe expedita tempore nisi! Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Architecto veritatis, ex a recusandae officiis laudantium perspiciatis quaerat rerum nobis laborum
+            autem animi ducimus id eveniet, nihil, quae necessitatibus itaque hic quasi accusamus odio soluta dolorem
+            dicta? Consequatur reiciendis amet porro libero, quas beatae, officiis id assumenda numquam odit corrupti
+            recusandae iste deleniti debitis ea vero! Inventore, accusamus explicabo perspiciatis necessitatibus sed
+            consectetur sunt repellendus, quasi soluta illo doloribus qui nihil vel a iusto, distinctio expedita
+            molestiae at? Quaerat, dolores voluptates? Neque deleniti quasi quo perspiciatis cumque recusandae totam
+            quis quidem amet placeat! Itaque totam possimus id minima deleniti hic dolor?</h1>
+    </div>
+
+    <a href="about.html">about</a>
 
 
 
@@ -29,7 +161,18 @@
 
 
 
-     <!-- CUSTOM JS FILE  -->
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- CUSTOM JS FILE  -->
     <script src="./public/js/custom.js"></script>
 </body>
 
