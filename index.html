@@ -15,91 +15,273 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Poppins:wght@100;200;300;500&family=Raleway:wght@100;200;300&family=Rubik:wght@300;400&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;1,200&family=Jost:wght@100;200;300&family=Merienda:wght@600&family=Poppins:wght@100;200&family=Raleway:wght@200;300;400&display=swap"
+        rel="stylesheet">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- for fontawesome i have used herosicon. link--- https://heroicons.com/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="/public/css/owl.carousel.css">
+
 </head>
 
 <body>
-<!-- ================== header start================== -->
-    <header>
-        <div class="bg-grayDark" x-data="{ atTop: true }"
-            x-on:scroll.window="atTop =( window.pageYOffset > 10) ? false : true ">
-            <!-- Navbar -->
-            <div class="w-full text-gray-700 bg-white  fixed top-0 animated z-40"
-                x-bind:class='{ "bg-black shadow-lg transition": !atTop }'>
-                <div x-data="{ open: false }">
-                    <div class="p-4 flex  items-center justify-between">
-                        <div> <a href="index.html"
-                                class="tracking-widest rounded-lg focus:outline-none focus:shadow-outline">
-                                <img src="./public/images/bdtask-logo.jpg" alt="logo" class="md:w-32 md:h-12 w-32 h-12">
-                            </a>
+    <!-- ================== header start================== -->
+    <div>
+        <nav x-data="{ open: false }" @keydown.window.escape="open = false"
+            class="bg-white py-2 fixed w-full z-10 top-0 shadow-sm">
+            <div class="container px-6 mx-auto lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center justify-between flex-grow">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-lg font-semibold tracking-widest text-green-500 uppercase">
+                                <a href="#">
+                                    <img src="./public/images/nav-logo.svg" alt="150px" width="" height="42px">
+                                </a>
+                            </h1>
                         </div>
-
-                        <div class="hidden md:flex space-x-6 text-black text-[15px]">
-                            <a href="home.html"
-                                class="hover:bg-green-500 hover:text-white hover:px-2 hover:font-normal  hover:rounded-sm transition-all">Home</a>
-                            <a href=""
-                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">About</a>
-                            <a href=""
-                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">Services</a>
-                            <a href=""
-                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">Software
-                                <span class="text-[13px] font-normal"><i class="fa fa-chevron-down" aria-hidden="true"></i></span> </a>
-                            <a href=""
-                                class="hover:bg-green-500 hover:text-white hover:px-2  hover:font-normal  hover:rounded-sm transition-all">Blog</a>
-                            <a href=""
-                                class="hover:bg-green-500 hover:text-white hover:px-2 hover:font-normal  hover:rounded-sm transition-all">Contact
-                                Us</a>
-                        </div>
-                        <div class="hidden md:flex">
-                            <div
-                                class="bg-green-500 px-4 py-2  text-[13px] text-white rounded-full hover:bg-transparent hover:text-black hover:border hover:rounded-full transition-all cursor-pointer">
-                                <a href="">GET A QUOTE</a>
+                        <div class="hidden lg:block">
+                            <div class="flex items-center">
+                                <a href="#"
+                                    class="flex flex-row items-center px-1 py-2 ml-4 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 transition-all focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Home</span>
+                                </a>
+                                <div class="relative" x-data="{ open: false}">
+                                    <button @click="open = !open"
+                                        class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                        <span class="mx-2">About Us</span>
+                                    </button>
+                                </div>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Services</span>
+                                </a>
+                                <div class="relative" x-data="{ open: false}">
+                                    <button @click="open = !open"
+                                        class="flex flex-row items-center px-3 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                        <span class="mx-2">Our Projects</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            :class="{'rotate-180': open, 'rotate-0': !open}"
+                                            class="w-4 h-4 mt-1 transform" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-down">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <div @click.away="open = false" x-show="open"
+                                        x-transition:enter="transition ease-out duration-100"
+                                        x-transition:enter-start="transform opaity-0 scale-95"
+                                        x-transition:enter-end="transform opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-75"
+                                        x-transition:leave-start="transform opacity-100 scale-100"
+                                        x-transition:leave-end="transform opacity-0 scale-95"
+                                        class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                                        <div class="py-1 bg-white rounded-md shadow-xs">
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo One
+                                            </a>
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo Two
+                                            </a>
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo Three
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Blog</span>
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Contact Us</span>
+                                </a>
                             </div>
                         </div>
-                        <!-- Button Mobile Nav -->
-                        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
-                            @click="open = !open">
-                            <span class="text-lg text-primary">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-                                </svg>
-
-                            </span>
-                        </button>
-
-                        <!-- End Button Mobile Nav -->
                     </div>
-
-                    <!-- Navbar Mobile -->
-                    <nav :class="{'flex': open, 'hidden': !open}"
-                        class="flex-col flex-grow pb-4 hidden bg-white shadow-lg rounded-b text-[15px]">
-                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:font-normal hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Home</a>
-                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg transition-all text-sm hover:font-normal font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500  focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">About Us</a>
-                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  hover:font-normal text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Services</a>
+                    <div class="hidden lg:block">
+                        <div class="flex items-center ml-4 md:ml-6">
+                            <div @click.away="open = false" class="relative ml-3" x-data="{ open: false }">
+                                <div>
+                                    <div
+                                        class="bg-sky-600 px-4 py-2  text-[13px] text-white rounded-md hover:bg-transparent hover:text-black hover:border hover:rounded-md transition-all cursor-pointer">
+                                        <a href="">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex -mr-2 lg:hidden">
+                        <button @click="open = !open"
+                            class="inline-flex items-center justify-center p-2 text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:bg-sky-600 focus:text-white"
+                            x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" x-bind:aria-expanded="open">
+                            <svg class="w-7 h-7" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu start -->
+            <div :class="{'block': open, 'hidden': !open}" class="hidden lg:hidden">
+                <div class="container px-6 mx-auto">
+                    <div class="pt-2 pb-3">
+                        <a href="#"
+                            class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 transition-all focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Home</span>
+                        </a>
+                        <div class="relative" x-data="{ open: false}">
                             <a href=""
-                            class="block px-4 py-2 mt-2  bg-transparent rounded-lg  hover:font-normal text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Software
-                            <span class="text-[13px] font-normal"><i class="fa fa-chevron-down" aria-hidden="true"></i></span> </a>    
-                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  hover:font-normal text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Blog</a>
-                        <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg hover:font-normal  text-sm font-semibold md:mt-0 hover:text-white focus:text-gray-900 hover:bg-green-500 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Contact</a>
-                    </nav>
-                    <!-- End Navbar Mobile -->
-                    </button>
+                                class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="mx-2">About Us</span>
+                            </a>
+                        </div>
+                        <div class="relative" x-data="{ open: false }">
+                            <a href="#"
+                                class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="ml-2">Services</span>
+                            </a>
+                        </div>
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = true"
+                                class="flex flex-row items-center w-full px-3 py-2 mt-1 text-base font-normal text-left text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="mx-2">Our Projects</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" :class="{'rotate-180': open, 'rotate-0': !open}"
+                                    class="w-4 h-4 mt-1 transform" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div x-show="open" @click.away="open = false"
+                                class="px-2 py-2 mt-2 bg-white rounded-md shadow-xs" role="menu"
+                                aria-orientation="vertical" aria-labelledby="user-menu" role="menuitem">
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo One
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo Two
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo Three
+                                </a>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Blog</span>
+                        </a>
+                        <a href="#"
+                            class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Contact Us</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="container px-6 mx-auto">
+                    <div x-data="{ open: false }" class="py-4">
+                        <button @click="open = true" class="flex items-center w-full focus:outline-none">
+                            <div class="flex items-center w-full text-left">
+                                <div class="flex-shrink-0">
+                                    <div
+                                        class="bg-sky-600 px-4 py-2  text-[13px] text-white rounded-md hover:bg-transparent hover:text-black hover:border hover:rounded-md transition-all cursor-pointer">
+                                        <a href="">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>s
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===============header end=============== -->
+
+
+    <!-- =========== slider part start================= -->
+    <div id="slider-section">
+        <div id="owl-demo" class="owl-carousel owl-theme w-full relative" style="margin-top: 65px;">
+
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt="The Last of us">
+                <div class="absolute top-36 flex flex-col left-16">
+                    <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># IT
+                        Solutions For Success</h4>
+                    <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">Exellent
+                        IT Services For <p class="-mt-6">Your Success.</p>
+                    </h1>
+                    <small class="md:text-[18px] text-[16px] text-gray-50" style="font-family:'Jost', sans-serif;">Lorem
+                        ipsum dolor, sit amet consectetur
+                        adipisicing elit.<br /> Dignissimos maxime vero... </small>
+
+                    <div id="button-group" class="flex space-x-6 mt-6">
+                        <div id="read-more"
+                            class="bg-sky-600 text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Read More</small>
+                        </div>
+                        <div id="contact-us"
+                            class="bg-black text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-sky-600  cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Contact Us</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item"><img
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt="GTA V">
+                <div class="absolute top-36 flex flex-col left-16">
+                    <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># We Provide
+                        Technology.</h4>
+                    <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">Modern
+                        Technology Is <p class="-mt-6">Improve Business.</p>
+                    </h1>
+                    <small class="md:text-[18px] text-[16px] text-gray-50" style="font-family:'Jost', sans-serif;">Lorem
+                        ipsum dolor, sit amet consectetur
+                        adipisicing elit.<br /> Dignissimos maxime vero... </small>
+
+                    <div id="button-group" class="flex space-x-6 mt-6">
+                        <div id="read-more"
+                            class="bg-sky-600 text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Read More</small>
+                        </div>
+                        <div id="contact-us"
+                            class="bg-black text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-sky-600  cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Contact Us</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-<!-- ===============header end=============== -->
+
+
+
+
+
+
+
+    <!-- =============== end slider================ -->
+
+    <!-- ============about us =============== -->
+
+    <!-- ==========about use============== -->
 
 
 
@@ -169,11 +351,32 @@
 
 
 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
+    <!-- Include js plugin -->
+    <script src="./public/js/owl.carousel.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- CUSTOM JS FILE  -->
     <script src="./public/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                autoplay: true,
+                items: 1,
+                loop: true,
+                responsive: true,
+                itemsDesktop: false,
+                itemsDesktopSmall: false,
+                itemsTablet: false,
+                itemsMobile: false
+            });
+
+        });
+    </script>
+
 </body>
 
 </html>
