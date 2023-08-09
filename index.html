@@ -12,25 +12,516 @@
     <!-- GOOGLE FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Poppins:wght@100;200;300;500&family=Raleway:wght@100;200;300&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Poppins:wght@100;200;300;500&family=Raleway:wght@100;200;300&family=Rubik:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;1,200&family=Jost:wght@100;200;300&family=Merienda:wght@600&family=Poppins:wght@100;200&family=Raleway:wght@200;300;400&display=swap"
+        rel="stylesheet">
     <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- for fontawesome i have used herosicon. link--- https://heroicons.com/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="/public/css/owl.carousel.css">
+
 </head>
 
 <body>
+    <!-- ================== header start================== -->
+    <div>
+        <nav x-data="{ open: false }" @keydown.window.escape="open = false"
+            class="bg-white py-2 fixed w-full z-10 top-0 shadow-sm">
+            <div class="container px-6 mx-auto lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center justify-between flex-grow">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-lg font-semibold tracking-widest text-green-500 uppercase">
+                                <a href="#">
+                                    <img src="./public/images/nav-logo.svg" alt="150px" width="" height="42px">
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="hidden lg:block">
+                            <div class="flex items-center">
+                                <a href="#"
+                                    class="flex flex-row items-center px-1 py-2 ml-4 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 transition-all focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Home</span>
+                                </a>
+                                <div class="relative" x-data="{ open: false}">
+                                    <button @click="open = !open"
+                                        class="flex flex-row items-center px-1 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                        <span class="mx-2">About Us</span>
+                                    </button>
+                                </div>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Services</span>
+                                </a>
+                                <div class="relative" x-data="{ open: false}">
+                                    <button @click="open = !open"
+                                        class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                        <span class="mx-2">Our Projects</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            :class="{'rotate-180': open, 'rotate-0': !open}"
+                                            class="w-4 h-4 mt-1 transform" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-down">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <div @click.away="open = false" x-show="open"
+                                        x-transition:enter="transition ease-out duration-100"
+                                        x-transition:enter-start="transform opaity-0 scale-95"
+                                        x-transition:enter-end="transform opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-75"
+                                        x-transition:leave-start="transform opacity-100 scale-100"
+                                        x-transition:leave-end="transform opacity-0 scale-95"
+                                        class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                                        <div class="py-1 bg-white rounded-md shadow-xs">
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-md font-bold text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo One
+                                            </a>
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-md font-bold text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo Two
+                                            </a>
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 ttext-md font-bold text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo Three
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Blog</span>
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Contact Us</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="flex items-center ml-4 md:ml-6">
+                            <div @click.away="open = false" class="relative ml-3" x-data="{ open: false }">
+                                <div>
+                                    <div
+                                        class="bg-sky-600 px-4 py-2 font-bold text-[13px] text-white rounded-md hover:bg-transparent hover:text-black hover:border hover:rounded-md transition-all cursor-pointer">
+                                        <a href="">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex -mr-2 lg:hidden">
+                        <button @click="open = !open"
+                            class="inline-flex items-center justify-center p-2 text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:bg-sky-600 focus:text-white"
+                            x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" x-bind:aria-expanded="open">
+                            <svg class="w-7 h-7" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu start -->
+            <div :class="{'block': open, 'hidden': !open}" class="hidden lg:hidden">
+                <div class="container px-6 mx-auto">
+                    <div class="pt-2 pb-3">
+                        <a href="#"
+                            class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 transition-all focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Home</span>
+                        </a>
+                        <div class="relative" x-data="{ open: false}">
+                            <a href=""
+                                class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="mx-2">About Us</span>
+                            </a>
+                        </div>
+                        <div class="relative" x-data="{ open: false }">
+                            <a href="#"
+                                class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="ml-2">Services</span>
+                            </a>
+                        </div>
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = true"
+                                class="flex flex-row items-center w-full px-3 py-2 mt-1 text-base font-normal text-left text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="mx-2">Our Projects</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" :class="{'rotate-180': open, 'rotate-0': !open}"
+                                    class="w-4 h-4 mt-1 transform" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div x-show="open" @click.away="open = false"
+                                class="px-2 py-2 mt-2 bg-white rounded-md shadow-xs" role="menu"
+                                aria-orientation="vertical" aria-labelledby="user-menu" role="menuitem">
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo One
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo Two
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo Three
+                                </a>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Blog</span>
+                        </a>
+                        <a href="#"
+                            class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Contact Us</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="container px-6 mx-auto">
+                    <div x-data="{ open: false }" class="py-4">
+                        <button @click="open = true" class="flex items-center w-full focus:outline-none">
+                            <div class="flex items-center w-full text-left">
+                                <div class="flex-shrink-0">
+                                    <div
+                                        class="bg-sky-600 px-4 py-2  text-[13px] text-white rounded-md hover:bg-transparent hover:text-black hover:border hover:rounded-md transition-all cursor-pointer">
+                                        <a href="">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>s
+            </div>
+        </nav>
+    </div>
 
+<<<<<<< HEAD
     <h1 class="font-extrabold text-center text-[200px] text-blue-600">hello world.....</h1>
-
-    <i class="fa-brands fa-facebook-f"></i>
-
-
-
+=======
+    <!-- ===============header end=============== -->
+>>>>>>> 3d562fbbcc698fec6a927284b72a3f50aae5ce2f
 
 
 
 
-     <!-- CUSTOM JS FILE  -->
+
+    <!-- =========== slider part start================= -->
+    <div id="slider-section">
+        <div id="owl-demo" class="owl-carousel owl-theme w-full relative" style="margin-top: 65px;">
+
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt="The Last of us">
+                <div class="absolute top-36 flex flex-col left-16">
+                    <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># IT
+                        Solutions For Success</h4>
+                    <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">Exellent
+                        IT Services For <p class="-mt-6">Your Success.</p>
+                    </h1>
+                    <small class="md:text-[18px] text-[16px] text-gray-50" style="font-family:'Jost', sans-serif;">Lorem
+                        ipsum dolor, sit amet consectetur
+                        adipisicing elit.<br /> Dignissimos maxime vero... </small>
+
+                    <div id="button-group" class="flex space-x-6 mt-6">
+                        <div id="read-more"
+                            class="bg-sky-600 text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Read More</small>
+                        </div>
+                        <div id="contact-us"
+                            class="bg-black text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-sky-600  cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Contact Us</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item"><img
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt="GTA V">
+                <div class="absolute top-36 flex flex-col left-16">
+                    <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># We Provide
+                        Technology.</h4>
+                    <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">Modern
+                        Technology Is <p class="-mt-6">Improve Business.</p>
+                    </h1>
+                    <small class="md:text-[18px] text-[16px] text-gray-50" style="font-family:'Jost', sans-serif;">Lorem
+                        ipsum dolor, sit amet consectetur
+                        adipisicing elit.<br /> Dignissimos maxime vero... </small>
+
+                    <div id="button-group" class="flex space-x-6 mt-6">
+                        <div id="read-more"
+                            class="bg-sky-600 text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Read More</small>
+                        </div>
+                        <div id="contact-us"
+                            class="bg-black text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-sky-600  cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Contact Us</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =============== end slider================ -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============about us =============== -->
+    <section class="w-full h-auto md:mb-16 sm:mt-16 mt-16">
+        <div class="flex md:flex-row flex-col  justify-between items-center mx-16 my-16">
+            <div class="space-y-5">
+                <h1 class="font-bold text-sky-600 text-[18px]"># &nbsp;ABOUT US</h1>
+                <h1 class="text-black font-bold md:text-[52px] sm:text-['38px'] text-[36px]">Increasing Business
+                    <br /><span>Success With
+                        <span class="border-b-sky-500 border-b-4">Technology</span></span></h1>
+                <P class="text-black text-md">There are many variations of passages of Lorem Ipsum available, but the
+                    majority have <br /> suffered alteration in some form, by injected humour, or randomised words which
+                    don’t <br /> look even slightly believable.</P>
+                <div>
+                    <ul class="space-y-2">
+                        <li> <span class="bg-green-400 p-1  rounded-sm text-white text-[10px] text-md "><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                        <li> <span class="bg-green-400 p-1  rounded-sm text-white text-[11px]  text-md"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                        <li> <span class="bg-green-400 p-1 rounded-sm text-white text-[11px]  text-md"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                        <li> <span class="bg-green-400 p-1  rounded-sm text-white text-[11px]  text-md"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                    </ul>
+                </div>
+                <div
+                    class="bg-sky-600 sm:w-40 w-28  text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                    <span>Learn More</span>
+                </div>
+            </div>
+            <div class="relative md:mt-0 mt-6">
+                <div>
+                    <img src="./public/images/4.jpg" alt="" class="object-cover w-auto h-auto rounded-md">
+                </div>
+                <div class="absolute sm:top-36 top-16 border-8 border-sky-500">
+                    <img src="./public/images/5.jpg" alt="" class="object-cover w-72 h-auto  transition-all">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========about use============== -->
+
+
+
+    <!-- ================ services section============ -->
+
+    <section class="w-full" style="margin-top: 100px;">
+        <div class=" my-18">
+            <div class="m-auto text-center">
+                <h1 class="text-sky-500 font-bold text-[18px]"># &nbsp; OUR SERVICES</h1>
+                <h1 class="md:text-[42px] text-[30px] text-black font-bold">We Offer A Wide Variety Of It <br /><span
+                        class="border-b-sky-500 border-b-4">Services</span></h1>
+            </div>
+            <div
+                class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 mx-16    mt-20 place-items-center lg:gap-y-0 gap-y-6">
+                <!-- =========single service card -->
+                <a href="">
+                    <div class="group w-80  bg-sky-600 rounded-md md:mt-0 mt-16">
+                        <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-full h-80  rounded-md py-6"
+                            id="single-service-card">
+                            <div class="bg-green">
+                                <div class="flex flex-col text-center space-y-6 mx-10">
+                                    <div class="border-8 border-sky-400 m-auto rounded-full">
+                                        <div
+                                            class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-sky-500 px-6 py-6 rounded-full">
+
+                                            <img src="./public/images/web.svg" alt="" class="w-10 h-10 group">
+
+                                        </div>
+                                    </div>
+                                    <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Software Development</h1>
+                                    <p class="text-[16px]">CST Software Solutions has developed a number of products and
+                                        MIS applications for the
+                                        clients in this service.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- ================end single service card=============== -->
+
+                <!-- =========single service card -->
+                <a href="">
+                    <div class="group w-80 bg-rose-600 rounded-md md:mt-0 mt-16">
+                        <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80  rounded-md py-6"
+                            id="single-service-card">
+                            <div class="bg-green">
+                                <div class="flex flex-col text-center space-y-6 mx-10">
+                                    <div class="border-8 border-rose-400 m-auto rounded-full">
+                                        <div
+                                            class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-rose-500 px-6 py-6 rounded-full">
+
+                                            <img src="./public/images/design.svg" alt="" class="w-10 h-10 group">
+
+                                        </div>
+                                    </div>
+                                    <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Creative Web Design</h1>
+                                    <p class="text-[16px]">CST Software Solutions has developed a number of products and
+                                        MIS applications for the
+                                        clients in this service.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- ================end single service card=============== -->
+                <!-- =========single service card=================== -->
+                <a href="">
+                    <div class="group w-80 bg-fuchsia-500 rounded-md">
+                        <div class="group-hover:skew-x-3 transform  cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80 rounded-md py-6"
+                            id="single-service-card">
+                            <div class="bg-green">
+                                <div class="flex flex-col text-center space-y-6 mx-10">
+                                    <div class="border-8 border-fuchsia-400 m-auto rounded-full">
+                                        <div
+                                            class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-fuchsia-500 px-6 py-6 rounded-full">
+    
+                                            <img src="./public/images/glob2.svg" alt="" class="w-10 h-10 group">
+    
+                                        </div>
+                                    </div>
+                                    <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Web Development</h1>
+                                    <p class="text-[16px]">CST Software Solutions has developed a number of products and MIS
+                                        applications for the
+                                        clients in this service.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- ================end single service card========s======= -->
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <!-- =================end service section=============== -->
+
+
+
+    <div class="mt-10">
+
+        <h1 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, maxime. Dolorum odit
+            veniam repellendus. Nam
+            consequatur maxime reiciendis veritatis cum eius illum debitis fugit ducimus voluptates ipsum perspiciatis,
+            ad amet quisquam nisi? Quam error dicta deleniti provident perferendis sit, repellendus perspiciatis eveniet
+            enim veritatis rem, optio hic assumenda. Quibusdam recusandae itaque temporibus exercitationem repudiandae
+            nihil sequi consectetur repellat officiis nisi rem inventore similique accusamus id, sapiente iure iste
+            debitis aspernatur quos neque vero. Necessitatibus ratione aut in odio quas vitae autem quam illo iusto
+            quisquam recusandae suscipit dolor, possimus eveniet incidunt sit culpa rem error sunt sed dolores sequi ea
+            magni magnam! Est, sequi odio recusandae similique rem nam cum illo quae consequatur ab nihil magni possimus
+            et doloribus aspernatur asperiores culpa cupiditate debitis repudiandae voluptates nostrum! Rem, officiis
+            libero voluptatibus nemo aliquid in omnis cum quod laborum sed nisi expedita, fuga pariatur enim odio
+            commodi velit dolorem cupiditate asperiores consequuntur impedit! Perspiciatis earum aspernatur dignissimos
+            ducimus amet! Voluptates quisquam, nisi ducimus, fugit asperiores repellat dolores beatae similique
+            explicabo aspernatur harum enim ratione, sit quidem non necessitatibus eos veritatis est eius quos
+            accusantium? Ut voluptatibus beatae quidem aperiam rem delectus possimus obcaecati qui aliquid fugit
+            eligendi veritatis dolorem sunt exercitationem iste, ratione ipsam aut magnam voluptatem nihil labore! Quas
+            nisi adipisci minus obcaecati eaque nihil cumque labore delectus, distinctio animi, nesciunt porro vel
+            assumenda alias molestias quia sequi ipsum voluptates aperiam aliquid iure ea iste enim ipsam. Nulla
+            repellat, eveniet ratione dignissimos porro quo assumenda nisi eaque ab harum vero neque quas quidem
+            placeat. Unde optio quia, maiores distinctio sapiente fugiat eaque tempore consequatur nobis atque. Delectus
+            officia, nulla illo numquam dolorum consequuntur quis error, sunt ut, est esse inventore deleniti! Veritatis
+            aspernatur distinctio eius temporibus praesentium quibusdam repellat ducimus voluptatem. Quisquam quasi
+            temporibus explicabo dolore! Mollitia sunt accusantium perferendis. Quidem pariatur eum placeat eos
+            quibusdam atque veritatis aut vitae cumque quos tempora culpa temporibus ea facilis distinctio eligendi
+            quas, dolorem minus voluptas dolore. Aliquid earum quasi a dolore fugit recusandae ipsa soluta enim autem
+            perferendis, omnis, dolores eos est nemo laudantium excepturi exercitationem eius deleniti. Aut delectus
+            blanditiis ducimus, commodi assumenda quisquam fuga corporis a velit. Autem accusamus sint maxime tempora
+            facilis repellendus dolores numquam debitis itaque nihil. Expedita amet reprehenderit dignissimos nisi in
+            repudiandae similique, autem natus ratione eius iure repellendus quod veritatis, accusamus provident!
+            Dolores at, quisquam similique totam voluptatibus eligendi impedit. Aliquid cupiditate tempora corrupti aut
+            tempore dignissimos optio, praesentium ut quod ipsa odit explicabo suscipit blanditiis quibusdam porro
+            itaque beatae! Deleniti repellendus recusandae error quidem blanditiis, ad quisquam nisi voluptatem modi.
+            Nisi quod dolorem pariatur cum, repudiandae, sequi eligendi iusto nihil rerum autem vel! Dolore natus
+            molestias corrupti voluptatum pariatur omnis officiis ipsum dolor. Vitae labore voluptas molestias
+            dignissimos doloremque accusantium quod mollitia ipsa autem earum cupiditate sint accusamus, aspernatur
+            numquam laudantium esse sunt placeat consequatur ratione qui iusto? Ea corporis explicabo officia saepe
+            commodi praesentium nulla facilis repellat beatae! Autem quibusdam consectetur tempore porro eveniet facilis
+            commodi labore nisi nihil! Saepe expedita tempore nisi! Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Architecto veritatis, ex a recusandae officiis laudantium perspiciatis quaerat rerum nobis laborum
+            autem animi ducimus id eveniet, nihil, quae necessitatibus itaque hic quasi accusamus odio soluta dolorem
+            dicta? Consequatur reiciendis amet porro libero, quas beatae, officiis id assumenda numquam odit corrupti
+            recusandae iste deleniti debitis ea vero! Inventore, accusamus explicabo perspiciatis necessitatibus sed
+            consectetur sunt repellendus, quasi soluta illo doloribus qui nihil vel a iusto, distinctio expedita
+            molestiae at? Quaerat, dolores voluptates? Neque deleniti quasi quo perspiciatis cumque recusandae totam
+            quis quidem amet placeat! Itaque totam possimus id minima deleniti hic dolor?</h1>
+    </div>
+
+    <a href="about.html">about</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <!-- Include js plugin -->
+    <script src="./public/js/owl.carousel.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- CUSTOM JS FILE  -->
     <script src="./public/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                autoplay: true,
+                items: 1,
+                loop: true,
+                responsive: true,
+                itemsDesktop: false,
+                itemsDesktopSmall: false,
+                itemsTablet: false,
+                itemsMobile: false
+            });
+
+        });
+    </script>
+
 </body>
 
 </html>

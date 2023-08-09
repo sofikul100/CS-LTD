@@ -1,5 +1,6 @@
-body{
+html,body{
     font-family: 'Poppins', sans-serif;
+<<<<<<< HEAD
 }
 .liniar-c{
     background: linear-gradient(90deg, rgba(85,142,219,1) 3%, rgba(94,95,210,1) 74%, rgba(102,51,201,1) 96%);
@@ -19,4 +20,22 @@ body{
     border-bottom-right-radius:0 ;
 
 
+=======
+    margin: 0px;
+    padding: 0px;
+}
+
+#owl-demo .item img{
+    width: 100%;
+    height: 600px;
+}
+
+h1,h2,h3,h4,h5,span,p,a{
+    font-family:'Jost', sans-serif;
+}
+
+
+#single-service-card{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+>>>>>>> 3d562fbbcc698fec6a927284b72a3f50aae5ce2f
 }
