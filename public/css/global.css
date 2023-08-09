@@ -1,3 +1,22 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+.liniar-c{
+    background: linear-gradient(90deg, rgba(85,142,219,1) 3%, rgba(94,95,210,1) 74%, rgba(102,51,201,1) 96%);
+}
+.colour-btn{
+    background-color: rgba(90,107,214);
+}
+.q-circle-t-l{
+    width:400px;
+    height: 300px;
+    background-color: lawngreen;
+    border-top-left-radius:100% ;
+    border-top-right-radius:0 ;
+
+    border-bottom-left-radius:0;
+
+    border-bottom-right-radius:0 ;
+
+
+}
