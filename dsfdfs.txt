@@ -1,0 +1,1022 @@
+    <!-- ================== header start================== -->
+    <div>
+        <nav x-data="{ open: false }" @keydown.window.escape="open = false"
+            class="bg-white py-2 fixed w-full z-10 top-0 shadow-sm">
+            <div class="container px-6 mx-auto lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center justify-between flex-grow">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-lg font-semibold tracking-widest text-green-500 uppercase">
+                                <a href="#">
+                                    <img src="./public/images/nav-logo.svg" alt="150px" width="" height="42px">
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="hidden lg:block">
+                            <div class="flex items-center">
+                                <a href="#"
+                                    class="flex flex-row items-center px-1 py-2 ml-4 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 transition-all focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Home</span>
+                                </a>
+                                <div class="relative" x-data="{ open: false}">
+                                    <button @click="open = !open"
+                                        class="flex flex-row items-center px-1 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                        <span class="mx-2">About Us</span>
+                                    </button>
+                                </div>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Services</span>
+                                </a>
+                                <div class="relative" x-data="{ open: false}">
+                                    <button @click="open = !open"
+                                        class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                        <span class="mx-2">Our Projects</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            :class="{'rotate-180': open, 'rotate-0': !open}"
+                                            class="w-4 h-4 mt-1 transform" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-down">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <div @click.away="open = false" x-show="open"
+                                        x-transition:enter="transition ease-out duration-100"
+                                        x-transition:enter-start="transform opaity-0 scale-95"
+                                        x-transition:enter-end="transform opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-75"
+                                        x-transition:leave-start="transform opacity-100 scale-100"
+                                        x-transition:leave-end="transform opacity-0 scale-95"
+                                        class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                                        <div class="py-1 bg-white rounded-md shadow-xs">
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-md font-bold text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo One
+                                            </a>
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 text-md font-bold text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo Two
+                                            </a>
+                                            <a href="#"
+                                                class="flex flex-row items-center px-4 py-2 ttext-md font-bold text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                                Demo Three
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Blog</span>
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                    <span class="ml-2">Contact Us</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="flex items-center ml-4 md:ml-6">
+                            <div @click.away="open = false" class="relative ml-3" x-data="{ open: false }">
+                                <div>
+                                    <div
+                                        class="bg-sky-600 px-4 py-2 font-bold text-[13px] text-white rounded-md hover:bg-transparent hover:text-black hover:border hover:rounded-md transition-all cursor-pointer">
+                                        <a href="">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex -mr-2 lg:hidden">
+                        <button @click="open = !open"
+                            class="inline-flex items-center justify-center p-2 text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:bg-sky-600 focus:text-white"
+                            x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" x-bind:aria-expanded="open">
+                            <svg class="w-7 h-7" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu start -->
+            <div :class="{'block': open, 'hidden': !open}" class="hidden lg:hidden">
+                <div class="container px-6 mx-auto">
+                    <div class="pt-2 pb-3">
+                        <a href="#"
+                            class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 transition-all focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Home</span>
+                        </a>
+                        <div class="relative" x-data="{ open: false}">
+                            <a href=""
+                                class="flex flex-row items-center px-1 py-2 ml-2 text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="mx-2">About Us</span>
+                            </a>
+                        </div>
+                        <div class="relative" x-data="{ open: false }">
+                            <a href="#"
+                                class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="ml-2">Services</span>
+                            </a>
+                        </div>
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = true"
+                                class="flex flex-row items-center w-full px-3 py-2 mt-1 text-base font-normal text-left text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                <span class="mx-2">Our Projects</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" :class="{'rotate-180': open, 'rotate-0': !open}"
+                                    class="w-4 h-4 mt-1 transform" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div x-show="open" @click.away="open = false"
+                                class="px-2 py-2 mt-2 bg-white rounded-md shadow-xs" role="menu"
+                                aria-orientation="vertical" aria-labelledby="user-menu" role="menuitem">
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo One
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo Two
+                                </a>
+                                <a href="#"
+                                    class="flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100">
+                                    Demo Three
+                                </a>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Blog</span>
+                        </a>
+                        <a href="#"
+                            class="flex flex-row items-center px-3 py-2  text-sm font-normal text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                            <span class="ml-2">Contact Us</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="container px-6 mx-auto">
+                    <div x-data="{ open: false }" class="py-4">
+                        <button @click="open = true" class="flex items-center w-full focus:outline-none">
+                            <div class="flex items-center w-full text-left">
+                                <div class="flex-shrink-0">
+                                    <div
+                                        class="bg-sky-600 px-4 py-2  text-[13px] text-white rounded-md hover:bg-transparent hover:text-black hover:border hover:rounded-md transition-all cursor-pointer">
+                                        <a href="">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <!-- =========== slider part start================= -->
+    <div id="slider-section">
+        <div id="owl-demo" class="owl-carousel owl-theme w-full relative" style="margin-top: 65px;">
+
+            <div class="item">
+                <img id="slider-image"
+                    src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt="The Last of us">
+                <div class="absolute top-36 flex flex-col left-16" id="first-slider-text">
+                    <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># IT
+                        Solutions For Success</h4>
+                    <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">Exellent
+                        IT Services For <p class="-mt-6">Your Success.</p>
+                    </h1>
+                    <small class="md:text-[18px] text-[16px] text-gray-50" style="font-family:'Jost', sans-serif;">Lorem
+                        ipsum dolor, sit amet consectetur
+                        adipisicing elit.<br /> Dignissimos maxime vero... </small>
+
+                    <div id="button-group" class="flex space-x-6 mt-6">
+                        <div id="read-more"
+                            class="bg-sky-600 text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Read More</small>
+                        </div>
+                        <div id="contact-us"
+                            class="bg-black text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-sky-600  cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Contact Us</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item"><img id="slider-image"
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                    alt="GTA V">
+                <div class="absolute top-36 flex flex-col left-16" id="first-slider-text">
+                    <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># We Provide
+                        Technology.</h4>
+                    <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">Modern
+                        Technology Is <p class="-mt-6">Improve Business.</p>
+                    </h1>
+                    <small class="md:text-[18px] text-[16px] text-gray-50" style="font-family:'Jost', sans-serif;">Lorem
+                        ipsum dolor, sit amet consectetur
+                        adipisicing elit.<br /> Dignissimos maxime vero... </small>
+
+                    <div id="button-group" class="flex space-x-6 mt-6">
+                        <div id="read-more"
+                            class="bg-sky-600 text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Read More</small>
+                        </div>
+                        <div id="contact-us"
+                            class="bg-black text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-sky-600  cursor-pointer transition-all">
+                            <small class="md:text-[15px] text-[13px]">Contact Us</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =============== end slider================ -->
+
+
+    <!-- ============about us =============== -->
+    <section class="w-full h-auto md:mb-16 sm:mt-16 mt-16" id="about_section" oncontextmenu="return false;">
+        <div class="flex md:flex-row flex-col  justify-between items-center mx-16 my-16">
+            <div class="space-y-5">
+                <h1 class="font-bold text-sky-600 text-[18px]"># &nbsp;ABOUT US</h1>
+                <h1 class="text-black font-bold md:text-[52px] sm:text-['38px'] text-[36px]" id="about-title">Increasing
+                    Business
+                    <br /><span>Success With
+                        <span class="border-b-sky-500 border-b-4">Technology</span></span>
+                </h1>
+                <P class="text-black text-md">There are many variations of passages of Lorem Ipsum available, but the
+                    majority have <br /> suffered alteration in some form, by injected humour, or randomised words which
+                    don’t <br /> look even slightly believable.</P>
+                <div>
+                    <ul class="space-y-2">
+                        <li> <span class="bg-green-400 p-1  rounded-sm text-white text-[10px] text-md "><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                        <li> <span class="bg-green-400 p-1  rounded-sm text-white text-[11px]  text-md"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                        <li> <span class="bg-green-400 p-1 rounded-sm text-white text-[11px]  text-md"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                        <li> <span class="bg-green-400 p-1  rounded-sm text-white text-[11px]  text-md"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span> <span class="ml-2">Pellentesque
+                                non arcu sollicitudin, pellentesque augue id.</span></li>
+                    </ul>
+                </div>
+                <div
+                    class="bg-sky-600 sm:w-40 w-28  text-white md:px-10 md:py-3 px-4 py-2 rounded-sm font-normal hover:bg-black cursor-pointer transition-all">
+                    <span>Learn More</span>
+                </div>
+            </div>
+            <div class="relative md:mt-0 mt-6">
+                <div>
+                    <img src="./public/images/4.jpg" alt="" class="object-cover w-auto h-auto rounded-md">
+                </div>
+                <div class="absolute sm:top-36 top-16 border-8 border-sky-500" id="about-us-top-image">
+                    <img src="./public/images/5.jpg" alt="" class="object-cover w-72 h-auto  transition-all">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========about use============== -->
+
+
+    <!--=============== services section start==========================  -->
+    <section class="text-gray-600 body-font" oncontextmenu="return false;">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap w-full mb-20">
+                <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+                    <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">Our Impressive Services</h1>
+                    <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                </div>
+                <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 text-[18px] font-medium">We provide services
+                    like software development, web development, creative design, digital marketing, maintenance and
+                    support...</p>
+            </div>
+            <div class="flex flex-wrap -m-4 mt-16">
+                <!-- single services card -->
+                <div class="xl:w-1/3 md:w-1/2 p-4 sm:m-auto m-auto " id="service-card-one">
+                    <a href="">
+                        <div class="group w-80  bg-sky-600 rounded-md md:mt-0 mt-16">
+                            <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-full h-80  rounded-md py-6"
+                                id="single-service-card">
+                                <div class="bg-green">
+                                    <div class="flex flex-col text-center space-y-6 mx-10">
+                                        <div class="border-8 border-sky-400 m-auto rounded-full">
+                                            <div
+                                                class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-sky-500 px-6 py-6 rounded-full">
+
+                                                <img src="./public/images/web.svg" alt="" class="w-10 h-10 group">
+
+                                            </div>
+                                        </div>
+                                        <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Software Development
+                                        </h1>
+                                        <p class="text-[16px]">CST Software Solutions has developed a number of products
+                                            and
+                                            MIS applications for the
+                                            clients in this service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end single service card -->
+                <!-- stard single services card -->
+                <div class="xl:w-1/3 md:w-1/2 p-4 sm:m-auto m-auto">
+                    <a href="">
+                        <div class="group w-80 bg-fuchsia-500 rounded-md">
+                            <div class="group-hover:skew-x-3 transform  cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80 rounded-md py-6"
+                                id="single-service-card">
+                                <div class="bg-green">
+                                    <div class="flex flex-col text-center space-y-6 mx-10">
+                                        <div class="border-8 border-fuchsia-400 m-auto rounded-full">
+                                            <div
+                                                class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-fuchsia-500 px-6 py-6 rounded-full">
+
+                                                <img src="./public/images/glob2.svg" alt="" class="w-10 h-10 group">
+
+                                            </div>
+                                        </div>
+                                        <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Web Development</h1>
+                                        <p class="text-[16px]">CST Software Solutions has developed a number of products
+                                            and
+                                            MIS
+                                            applications for the
+                                            clients in this service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end single service card -->
+
+                <!-- start single service card  -->
+                <div class="xl:w-1/3 md:w-1/2 p-4 sm:m-auto m-auto" id="service-card-three">
+                    <a href="">
+                        <div class="group w-80 bg-rose-600 rounded-md md:mt-0 mt-16">
+                            <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80  rounded-md py-6"
+                                id="single-service-card">
+                                <div class="bg-green">
+                                    <div class="flex flex-col text-center space-y-6 mx-10">
+                                        <div class="border-8 border-rose-400 m-auto rounded-full">
+                                            <div
+                                                class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-rose-500 px-6 py-6 rounded-full">
+
+                                                <img src="./public/images/design.svg" alt="" class="w-10 h-10 group">
+
+                                            </div>
+                                        </div>
+                                        <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Creative Web Design
+                                        </h1>
+                                        <p class="text-[16px]">CST Software Solutions has developed a number of products
+                                            and
+                                            MIS applications for the
+                                            clients in this service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end single service card -->
+
+                <!-- start single service card -->
+                <div class="xl:w-1/3 md:w-1/2 p-4 sm:m-auto m-auto" id="service-card-five">
+                    <a href="">
+                        <div class="group w-80 bg-orange-600 rounded-md md:mt-0 mt-16">
+                            <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80  rounded-md py-6"
+                                id="single-service-card">
+                                <div class="bg-green">
+                                    <div class="flex flex-col text-center space-y-6 mx-10">
+                                        <div class="border-8 border-orange-400 m-auto rounded-full">
+                                            <div
+                                                class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-orange-500 px-6 py-6 rounded-full">
+
+                                                <img src="./public/images/market.svg" alt="" class="w-10 h-10 group">
+
+                                            </div>
+                                        </div>
+                                        <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Digital Marketing
+                                        </h1>
+                                        <p class="text-[16px]">CST Software Solutions has developed a number of products
+                                            and
+                                            MIS applications for the
+                                            clients in this service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end single service card -->
+                <div class="xl:w-1/3 md:w-1/2 p-4 sm:m-auto m-auto">
+                    <a href="">
+                        <div class="group w-80 bg-cyan-600 rounded-md md:mt-0 mt-16">
+                            <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80  rounded-md py-6"
+                                id="single-service-card">
+                                <div class="bg-green">
+                                    <div class="flex flex-col text-center space-y-6 mx-10">
+                                        <div class="border-8 border-cyan-400 m-auto rounded-full">
+                                            <div
+                                                class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-cyan-500 px-6 py-6 rounded-full">
+
+                                                <img src="./public/images/issue.svg" alt="" class="w-10 h-10 group">
+
+                                            </div>
+                                        </div>
+                                        <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Maintenance & Support
+                                        </h1>
+                                        <p class="text-[16px]">CST Software Solutions has developed a number of products
+                                            and
+                                            MIS applications for the
+                                            clients in this service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="xl:w-1/3 md:w-1/2 p-4 sm:m-auto m-auto" id="service-card-six">
+                    <a href="">
+                        <div class="group w-80 bg-indigo-600 rounded-md md:mt-0 mt-16">
+                            <div class="group-hover:skew-x-3 transform cursor-pointer transition-all duration-300 bg-white shadow-lg w-80 h-80  rounded-md py-6"
+                                id="single-service-card">
+                                <div class="bg-green">
+                                    <div class="flex flex-col text-center space-y-6 mx-10">
+                                        <div class="border-8 border-indigo-400 m-auto rounded-full">
+                                            <div
+                                                class="m-auto group-hover:rotate-180 transform transition-all duration-200 bg-indigo-500 px-6 py-6 rounded-full">
+
+                                                <img src="./public/images/qa.svg" alt="" class="w-10 h-10 group">
+
+                                            </div>
+                                        </div>
+                                        <h1 class=" text-black text-[20px] mt-8 text-md font-bold">Qa And Testing
+                                        </h1>
+                                        <p class="text-[16px]">CST Software Solutions has developed a number of products
+                                            and
+                                            MIS applications for the
+                                            clients in this service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =============== services section end========================= -->
+
+
+
+    <!-- ==============why you choose us============ -->
+    <section class="text-black body-font overflow-hidden" oncontextmenu="return false;">
+        <div class="pt-24 m-auto mx-auto">
+            <div class="lg:w-full mx-14  flex flex-wrap">
+                <img id="" alt="ecommerce"
+                    class="lg:w-1/2 w-full lg:h-auto h-60 object-cover object-center border-sky-500 rounded-md border-8"
+                    src="./public/images/why.jpg">
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <div class="ml-6">
+                        <div class="flex flex-col space-y-6">
+                            <h1 class="font-bold text-[35px]"> Why Choose You Us... </h1>
+                            <h3 class="font-bold text-[20px]">24X7 Hour Customer Support: </h3>
+                            <p class="font-md">Our Dedicated Support Team Always Ready to Assist You. </p>
+                            <h3 class="font-bold text-[20px]">Fully Responsive Design: </h3>
+                            <p class="font-md">We Provide 100% Device Responsive And Seo Friendly Design.</p>
+                            <h3 class="font-bold text-[20px]">100+ Successfull Projects:</h3>
+                            <p class="font-md">We Successfully Completed 100+ Local And International Projects.</p>
+                        </div>
+
+                        <div class="flex flex-row justify-between items-center mt-6 xl:mr-32 lg-mr-32 md:mr-28">
+                            <div>
+                                <h1 class="font-bold text-[20px] text-sky-600"><span class="count">100</span>+</h1>
+                                <h1 class="font-bold text-[20px] text-sky-600">Project Completed</h1>
+                            </div>
+                            <div>
+                                <h1 class="font-bold text-[20px] text-green-600"><span class="count">50</span>+</h1>
+                                <h1 class="font-bold text-[20px] text-green-600">Happy Clients</h1>
+                            </div>
+                            <div>
+                                <h1 class="font-bold text-[20px] text-fuchsia-600"><span class="count">20</span>+</h1>
+                                <h1 class="font-bold text-[20px] text-fuchsia-600">Running Projects</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===================== end why you choose us -->
+
+
+    <!-- ===================start our projects=============== -->
+    <section class="text-gray-600 body-font h-auto w-full" oncontextmenu="return false;">
+        <div class="container px-6 pt-20  mx-auto -space-y-16">
+            <div class="flex flex-wrap w-full mb-20">
+                <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+                    <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">Our Impressive Portfolio</h1>
+                    <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                </div>
+                <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 text-[18px] font-medium">We have completed
+                    lots
+                    of innovation project for local and international client dimand.We always work according to the
+                    exact requirements of the client..</p>
+            </div>
+            <div id="owl-demo2" class="owl-carousel owl-theme">
+                <!-- start for loop in php -->
+                <!-- ============single project card start==================  -->
+                <a href="">
+                    <div class="item py-10 px-4 cursor-pointer hover:translate-y-4 transition-all duration-300">
+                        <div class="bg-white p-10 rounded-md" id="single-project-card">
+                            <div class="flex flex-col space-y-4">
+                                <div><img src="./public/images/website-demo.png" alt=""></div>
+                                <h2 class="text-[18px] font-bold text-black">Software</h2>
+                                <h1 class="sm:text-2xl text-1xl font-bold text-black">Lorem ipsum dolor sit amet
+                                    consectetur
+                                    adipisicing.</h1>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- ===============end single project card==================== -->
+                <div class="item py-10 px-4 cursor-pointer hover:translate-y-4 transition-all duration-300">
+                    <div class="bg-white p-10 rounded-md" id="single-project-card">
+                        <div class="flex flex-col space-y-4">
+                            <div><img src="./public/images/website-demo.png" alt=""></div>
+                            <h2 class="text-[18px] font-bold text-black">Website</h2>
+                            <h1 class="sm:text-2xl text-1xl font-bold text-black">Lorem ipsum dolor sit amet consectetur
+                                adipisicing.</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-10 px-4 cursor-pointer hover:translate-y-4 transition-all duration-400">
+                    <div class="bg-white p-10 rounded-md" id="single-project-card">
+                        <div class="flex flex-col space-y-4">
+                            <div><img src="./public/images/website-demo.png" alt=""></div>
+                            <h2 class="text-[18px] font-bold text-black">Mobile App</h2>
+                            <h1 class="sm:text-2xl text-1xl font-bold text-black">Lorem ipsum dolor sit amet consectetur
+                                adipisicing.</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-10 px-4 cursor-pointer hover:translate-y-4 transition-all duration-300">
+                    <div class="bg-white p-10 rounded-md" id="single-project-card">
+                        <div class="flex flex-col space-y-4">
+                            <div><img src="./public/images/website-demo.png" alt=""></div>
+                            <h2 class="text-[18px] font-bold text-black">Software</h2>
+                            <h1 class="sm:text-2xl text-1xl font-bold text-black">Lorem ipsum dolor sit amet consectetur
+                                adipisicing.</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-10 px-4 cursor-pointer hover:translate-y-4 transition-all duration-300">
+                    <div class="bg-white p-10 rounded-md" id="single-project-card">
+                        <div class="flex flex-col space-y-4">
+                            <div><img src="./public/images/website-demo.png" alt=""></div>
+                            <h2 class="text-[18px] font-bold text-black">Software</h2>
+                            <h1 class="sm:text-2xl text-1xl font-bold text-black">Lorem ipsum dolor sit amet consectetur
+                                adipisicing.</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-10 px-4 cursor-pointer hover:translate-y-4 transition-all duration-300">
+                    <div class="bg-white p-10 rounded-md" id="single-project-card">
+                        <div class="flex flex-col space-y-4">
+                            <div><img src="./public/images/website-demo.png" alt=""></div>
+                            <h2 class="text-[18px] font-bold text-black">Software</h2>
+                            <h1 class="sm:text-2xl text-1xl font-bold text-black">Lorem ipsum dolor sit amet consectetur
+                                adipisicing.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============end our project================== -->
+
+
+
+
+
+    <!-- ================ what client says section start -->
+
+    <section class="text-gray-600 body-font h-auto w-full mb-40" oncontextmenu="return false;">
+        <div class="container px-6 pt-14  mx-auto -space-y-16">
+            <div class="flex flex-wrap w-full mb-32">
+                <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+                    <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">What Clients Say About Us..</h1>
+                    <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                </div>
+            </div>
+            <div id="owl-demo3" class="owl-carousel owl-theme">
+                <!-- start for loop in php -->
+                <!-- ============single project card start==================  -->
+                <div class="item py-2 mr-6 mb-10 border border-sky-500 rounded-lg" id="what-client-says-card">
+                    <div>
+                        <div class="h-full bg-white p-8 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
+                                <path
+                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                                </path>
+                            </svg>
+                            <p class="leading-relaxed mb-6 text-[18px]">Synth chartreuse iPhone lomo cray raw denim
+                                brunch
+                                everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest
+                                fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                            <a class="inline-flex items-center">
+                                <img alt="testimonial" src="./public/images/avtar.jpg"
+                                    class="w-20 h-20 rounded-full flex-shrink-0 object-cover object-center border p-2 bg-sky-500">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-bold text-[22px] text-black">Alper Kamu</span>
+                                    <span class="text-gray-500 text-md font-bold">Principal GTSC</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===============end single project card==================== -->
+                <div class="item py-2  mb-10 border mr-6 border-sky-500 rounded-lg" id="what-client-says-card">
+                    <div>
+                        <div class="h-full bg-white p-8 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
+                                <path
+                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                                </path>
+                            </svg>
+                            <p class="leading-relaxed mb-6 text-[18px]">Synth chartreuse iPhone lomo cray raw denim
+                                brunch
+                                everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest
+                                fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                            <a class="inline-flex items-center">
+                                <img alt="testimonial" src="./public/images/avtar.jpg"
+                                    class="w-20 h-20 rounded-full flex-shrink-0 object-cover object-center border p-2 bg-sky-500">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-bold text-[22px] text-black">Alper Kamu</span>
+                                    <span class="text-gray-500 text-md font-bold">Principal GTSC</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-2 mr-6 mb-10  border border-sky-500 rounded-lg" id="what-client-says-card">
+                    <div>
+                        <div class="h-full bg-white p-8 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
+                                <path
+                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                                </path>
+                            </svg>
+                            <p class="leading-relaxed mb-6 text-[18px]">Synth chartreuse iPhone lomo cray raw denim
+                                brunch
+                                everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest
+                                fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                            <a class="inline-flex items-center">
+                                <img alt="testimonial" src="./public/images/avtar.jpg"
+                                    class="w-20 h-20 rounded-full flex-shrink-0 object-cover object-center border p-2 bg-sky-500">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-bold text-[22px] text-black">Alper Kamu</span>
+                                    <span class="text-gray-500 text-md font-bold">Principal GTSC</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-2 mr-6  mb-10 border border-sky-500 rounded-lg" id="what-client-says-card">
+                    <div>
+                        <div class="h-full bg-white p-8 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
+                                <path
+                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                                </path>
+                            </svg>
+                            <p class="leading-relaxed mb-6 text-[18px]">Synth chartreuse iPhone lomo cray raw denim
+                                brunch
+                                everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest
+                                fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                            <a class="inline-flex items-center">
+                                <img alt="testimonial" src="./public/images/avtar.jpg"
+                                    class="w-20 h-20 rounded-full flex-shrink-0 object-cover object-center border p-2 bg-sky-500">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-bold text-[22px] text-black">Alper Kamu</span>
+                                    <span class="text-gray-500 text-md font-bold">Principal GTSC</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-2 mb-10 mr-6  border border-sky-500 rounded-lg" id="what-client-says-card">
+                    <div>
+                        <div class="h-full bg-white p-8 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
+                                <path
+                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                                </path>
+                            </svg>
+                            <p class="leading-relaxed mb-6 text-[18px]">Synth chartreuse iPhone lomo cray raw denim
+                                brunch
+                                everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest
+                                fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                            <a class="inline-flex items-center">
+                                <img alt="testimonial" src="./public/images/avtar.jpg"
+                                    class="w-20 h-20 rounded-full flex-shrink-0 object-cover object-center border p-2 bg-sky-500">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-bold text-[22px] text-black">Alper Kamu</span>
+                                    <span class="text-gray-500 text-md font-bold">Principal GTSC</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item py-2  mr-6 mb-10 border border-sky-500 rounded-lg" id="what-client-says-card">
+                    <div>
+                        <div class="h-full bg-white p-8 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
+                                <path
+                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                                </path>
+                            </svg>
+                            <p class="leading-relaxed mb-6 text-[18px]">Synth chartreuse iPhone lomo cray raw denim
+                                brunch
+                                everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest
+                                fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                            <a class="inline-flex items-center">
+                                <img alt="testimonial" src="./public/images/avtar.jpg"
+                                    class="w-20 h-20 rounded-full flex-shrink-0 object-cover object-center border p-2 bg-sky-500">
+                                <span class="flex-grow flex flex-col pl-4">
+                                    <span class="title-font font-bold text-[22px] text-black">Alper Kamu</span>
+                                    <span class="text-gray-500 text-md font-bold">Principal GTSC</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================end what client says section -->
+
+
+
+    <!-- ================footer section start ==================== -->
+    <footer class="text-black body-font border-t-2 w-full bg-black border-gray-100" oncontextmenu="return false;">
+
+
+        <div class="container px-5 w-full mx-auto -mt-10 bg-white shadow-lg py-16 rounded-lg border" id="footer-contact">
+
+            <div class="flex md:flex-row flex-col md:space-y-0 space-y-16 md:items-center items-center justify-between">
+                <div class="flex flex-row ">
+                    <div class="bg-sky-600 shadow-lg p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12  text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                    </div>
+                    <div class="ml-4 mt-1">
+                        <h1 class="text-[24px]  font-bold">Address</h1>
+                        <h4 class="text-[18px]  font-bold">House4-Mohammadpur,Dhaka</h4>
+                    </div>
+
+                </div>
+                <div class="flex flex-row">
+                    <div class="bg-sky-600 shadow-lg p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12  h-12  text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>
+                    </div>
+                    <div class="mt-2 ml-4">
+                        <h1 class="text-[24px]  font-bold">Call Us On</h1>
+                        <h4 class="text-[18px]  font-bold">01900000000</h4>
+                    </div>
+                </div>
+
+                <div class="flex flex-row ">
+                    <div class="bg-sky-600 shadow-lg p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-10  h-10  text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    </div>
+                    <div class="mt-1 ml-4">
+                        <h1 class="text-[24px]  font-bold">Email Us</h1>
+                        <h4 class="text-[18px]  font-bold">creativesoftlimited@gmail.com</h4>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div
+            class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+            <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img src="./public/images/nav-logo.svg" alt="">
+                </a>
+                <p class="mt-2 text-md text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione
+                    maxime maiores rerum officiis dolores cumque mollitia inventore perspiciatis autem aut!</p>
+            </div>
+            <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class=" text-sky-600 text-lg font-bold tracking-widest  mb-3">NAVIGATION ITEMS</h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <a
+                                class="text-white text-md   transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Home</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">About
+                                Us</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">All
+                                Projects</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Services</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-bold text-lg  text-sky-600 tracking-widest  mb-3">ALL PAGES</h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Home</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">About
+                                Us</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Our
+                                Team</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Contact
+                                Us</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-bold text-sky-600 tracking-widest text-lg mb-3">ALL PROJECTS</h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Inventory
+                                Management System</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Ecommerce</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">School
+                                Management System</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Personal
+                                Blog</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4 space-y-2">
+                    <h2 class="title-font font-bold text-lg text-sky-600 tracking-widest  mb-3">SOCIAL LINKS</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Facebook</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Instagram</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">Youtube</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-white text-md  transition-all duration-300 transfrom hover:ml-2 hover:text-sky-600 cursor-pointer">WhatsApp</a>
+                        </li>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="bg-sky-600 text-white  w-full">
+            <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <p class="text-white text-md text-center sm:text-left">© 2023 Created By
+                    <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-white ml-1 text-md"
+                        target="_blank">Creative Soft Limited</a>
+                </p>
+                <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                    <a class="text-white">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-white">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            class="w-5 h-5" viewBox="0 0 24 24">
+                            <path
+                                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-white">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-white">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path stroke="none"
+                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                            </path>
+                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!-- ================end footer section==================== -->
+
+
+
+
+
+
+
+
+
+
+ <div class="flex flex-wrap -m-4">
+      <div class="p-4">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="https://dummyimage.com/200x200">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-gray-900">Alper Kamu</h2>
+            <h3 class="text-gray-500 mb-3">UI Developer</h3>
+            <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+            <span class="inline-flex">
+              <a class="text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-2 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-2 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+ </div>
