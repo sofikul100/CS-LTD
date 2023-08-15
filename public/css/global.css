@@ -14,19 +14,6 @@ body {
 .colour-btn {
     background-color: rgba(90, 107, 214);
 }
-
-.q-circle-t-l {
-    width: 400px;
-    height: 300px;
-    background-color: lawngreen;
-    border-top-left-radius: 100%;
-    border-top-right-radius: 0;
-
-    border-bottom-left-radius: 0;
-
-    border-bottom-right-radius: 0;
-}
-
 /* 
 /* =======
     margin: 0px;
