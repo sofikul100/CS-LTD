@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Soft Ltd---Home</title>
+    <link rel="icon" type="image/x-icon" href="./public/images/app-development.png">
+    <title>Creative Soft Ltd -||- Home</title>
     <!-- TAILWIND CSS  -->
     <link rel="stylesheet" href="./public/css/tailwind.css">
     <!-- GLOBAL CSS FILE -->
@@ -35,11 +36,39 @@
 
 
     <div id="whole-section">
+        <!-- =============== top header=================== -->
+      
+        <!-- ===========end top header ================ -->
         <!-- ================== header start================== -->
         <div>
             <nav x-data="{ open: false }" @keydown.window.escape="open = false"
                 class="bg-white py-2 fixed w-full z-10 top-0 shadow-sm">
-                <div class="container px-6 mx-auto lg:px-8">
+
+
+
+
+                    <div class="bg-gradient-to-r text-white  from-sky-600 to-sky-900 py-2  z-100 top-0 -m-3 mb-3 h-auto" >
+                        <div class="grid grid-cols-2">
+                            <div class="ml-6 mt-1 ">
+                                <div class="flex flex-col md:flex-row space-x-4">
+                                      <div><span class="text-[15px] ml-4"><b>Phone</b>: 01900000000</span></div>
+                                      <div><span><b>Email</b>:Creativesoftltd@gmail.com</span></div>
+                                </div>
+                            </div>
+                            <div class="hidden md:flex mr-10  justify-end flex-row items-center space-x-6 ">
+                                 <span class=" px-2  cursor-pointer  py-2 rounded-full border bg-white"><img src="./public/images/facebook.png" class="w-3" alt=""></span>
+                                 <span class=" px-2 cursor-pointer py-2 rounded-full border bg-white "><img src="./public/images/twitter.png" class="w-3" alt=""></span>
+                                 <span class="px-2 cursor-pointer py-2 rounded-full border bg-white "><img src="./public/images/instagram.png" class="w-3" alt=""></span>
+                                 <span class=" px-2 cursor-pointer py-2 rounded-full border bg-white "><img src="./public/images/skype.svg" class="w-3" alt=""></span>
+                            </div>
+                      </div>
+                    </div>
+
+
+
+
+
+                <div class="px-6 mx-auto lg:px-8">
                     <div class="flex items-center justify-between h-16">
                         <div class="flex items-center justify-between flex-grow">
                             <div class="flex-shrink-0">
@@ -56,12 +85,14 @@
                                         <span class="ml-2">Home</span>
                                     </a>
                                     <div class="relative" x-data="{ open: false}">
-                                        <button @click="open = !open"
-                                            class="flex flex-row items-center px-1 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
-                                            <span class="mx-2">About Us</span>
-                                        </button>
+                                        <a href="about.html">
+                                            <button @click="open = !open"
+                                                class="flex flex-row items-center px-1 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
+                                                <span class="mx-2">About Us</span>
+                                            </button>
+                                        </a>
                                     </div>
-                                    <a href="#"
+                                    <a href="service.html"
                                         class="flex flex-row items-center px-3 py-2 ml-2 text-md font-bold text-black rounded-md hover:text-white hover:bg-sky-600 focus:outline-none focus:text-white focus:bg-sky-600">
                                         <span class="ml-2">Services</span>
                                     </a>
@@ -224,16 +255,20 @@
         <div id="slider-section">
             <div id="owl-demo" class="owl-carousel owl-theme w-full relative" style="margin-top: 65px;">
 
-                <div class="item">
+                <div class="item relative">
                     <img id="slider-image"
                         src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
                         alt="The Last of us">
-                    <div class="absolute top-36 flex flex-col left-16" id="first-slider-text">
+                    <div class="absolute w-full  z-50 top-0" style="height: 600px; background-color: #000000e8;">
+                        hello
+                    </div>
+                    <div class="absolute top-36 flex flex-col left-7 z-50" id="first-slider-text">
                         <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># IT
                             Solutions For Success</h4>
-                        <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">
+                        <h1 class="md:text-[62px] text-white text-[42px] font-bold "
+                            style="font-family:'Jost', sans-serif;">
                             Exellent
-                            IT Services For <p class="-mt-6">Your Success.</p>
+                            IT Services For <p class="-mt-2">Your Success.</p>
                         </h1>
                         <small class="md:text-[18px] text-[16px] text-gray-50"
                             style="font-family:'Jost', sans-serif;">Lorem
@@ -252,16 +287,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="item"><img id="slider-image"
+                <div class="item relative"><img id="slider-image"
                         src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
                         alt="GTA V">
-                    <div class="absolute top-36 flex flex-col left-16" id="first-slider-text">
-                        <h4 class="text-sky-600 text-[18px] font-bold" style="font-family:'Jost', sans-serif;"># We
+
+                    <div class="absolute w-full  z-50 top-0" style="height: 600px; background-color: #000000e8;">
+                        
+                    </div>
+                    <div class="absolute top-36 flex flex-col left-7 z-50" id="first-slider-text">
+                        <h4 class="text-sky-600 text-[18px] font-bold z-50" style="font-family:'Jost', sans-serif;"># We
                             Provide
                             Technology.</h4>
-                        <h1 class="md:text-[62px]  text-[42px] font-bold " style="font-family:'Jost', sans-serif;">
+                        <h1 class="md:text-[62px]  text-[42px] font-bold z-50 text-white"
+                            style="font-family:'Jost', sans-serif;">
                             Modern
-                            Technology Is <p class="-mt-6">Improve Business.</p>
+                            Technology Is <p class="-mt-2">Improve Business.</p>
                         </h1>
                         <small class="md:text-[18px] text-[16px] text-gray-50"
                             style="font-family:'Jost', sans-serif;">Lorem
@@ -343,13 +383,12 @@
         <section class="text-gray-600 body-font" oncontextmenu="return false;">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap w-full mb-20">
-                    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">Our Impressive Services</h1>
-                        <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                    <div class=" w-full mb-6 lg:mb-0">
+                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold text-center ">Our Impressive <span class="border-b-4 border-sky-600">Services</span></h1>
+                        <p class="text-center text-[18px] font-medium mt-6">We provide services
+                            like software development, web development, creative design, digital marketing, maintenance and
+                            support...</p>
                     </div>
-                    <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 text-[18px] font-medium">We provide services
-                        like software development, web development, creative design, digital marketing, maintenance and
-                        support...</p>
                 </div>
                 <div class="flex flex-wrap -m-4 mt-16">
                     <!-- single services card -->
@@ -590,14 +629,10 @@
         <section class="text-gray-600 body-font h-auto w-full" oncontextmenu="return false;">
             <div class="container px-6 pt-20  mx-auto -space-y-16">
                 <div class="flex flex-wrap w-full mb-20">
-                    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">Our Impressive Portfolio</h1>
-                        <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                    <div class=" w-full mb-6 lg:mb-0">
+                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold text-center ">Our Ready <span class="border-b-4 border-sky-600">Software & Website</span></h1>
+                        <p class="text-center text-[18px] font-medium mt-6">We Have Already Some Ready Website And Software.Moreover, we make custom software according to client's requirements..</p>
                     </div>
-                    <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 text-[18px] font-medium">We have completed
-                        lots
-                        of innovation project for local and international client dimand.We always work according to the
-                        exact requirements of the client..</p>
                 </div>
                 <div id="owl-demo2" class="owl-carousel owl-theme">
                     <!-- start for loop in php -->
@@ -676,19 +711,18 @@
         </section>
         <!-- ============end our project================== -->
 
-        
+
 
         <!-- ================ our team part start=================== -->
-        
+
         <section class="text-gray-600 body-font h-auto w-full">
             <div class="container px-6 pt-20  mx-auto -space-y-16">
                 <div class="flex flex-wrap w-full mb-28">
-                    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">Meet Our Team Mumbers..</h1>
-                        <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                    <div class=" w-full mb-6 lg:mb-0">
+                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold text-center ">Meet Our Amazing <span class="border-b-4 border-sky-600">Team Mumbers</span></h1>
+                        <p class="text-center text-[18px] font-medium mt-6">Meet Our
+                            Exceptionally Talented Team of CST...Our All Team Mumbers Is Very Skillfull Person...</p>
                     </div>
-                    <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 text-[18px] font-medium">Meet Our
-                        Exceptionally Talented Team of CST...Our All Team Mumbers Is Very Skillfull Person...</p>
                 </div>
                 <div id="owl-demo4" class="owl-carousel owl-theme">
                     <!-- start for loop in php -->
@@ -711,9 +745,9 @@
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/instagram.png" alt="facebook" class="object-cover">
                                     </a>
-                                   <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
+                                    <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/twitter.png" alt="facebook" class="object-cover">
-                                   </a>
+                                    </a>
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer mr-4">
                                         <img src="./public/images/linkedin.png" alt="facebook" class="object-cover">
                                     </a>
@@ -742,9 +776,9 @@
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/instagram.png" alt="facebook" class="object-cover">
                                     </a>
-                                   <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
+                                    <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/twitter.png" alt="facebook" class="object-cover">
-                                   </a>
+                                    </a>
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer mr-4">
                                         <img src="./public/images/linkedin.png" alt="facebook" class="object-cover">
                                     </a>
@@ -772,9 +806,9 @@
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/instagram.png" alt="facebook" class="object-cover">
                                     </a>
-                                   <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
+                                    <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/twitter.png" alt="facebook" class="object-cover">
-                                   </a>
+                                    </a>
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer mr-4">
                                         <img src="./public/images/linkedin.png" alt="facebook" class="object-cover">
                                     </a>
@@ -802,9 +836,9 @@
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/instagram.png" alt="facebook" class="object-cover">
                                     </a>
-                                   <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
+                                    <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/twitter.png" alt="facebook" class="object-cover">
-                                   </a>
+                                    </a>
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer mr-4">
                                         <img src="./public/images/linkedin.png" alt="facebook" class="object-cover">
                                     </a>
@@ -832,9 +866,9 @@
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/instagram.png" alt="facebook" class="object-cover">
                                     </a>
-                                   <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
+                                    <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/twitter.png" alt="facebook" class="object-cover">
-                                   </a>
+                                    </a>
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer mr-4">
                                         <img src="./public/images/linkedin.png" alt="facebook" class="object-cover">
                                     </a>
@@ -862,9 +896,9 @@
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/instagram.png" alt="facebook" class="object-cover">
                                     </a>
-                                   <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
+                                    <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer">
                                         <img src="./public/images/twitter.png" alt="facebook" class="object-cover">
-                                   </a>
+                                    </a>
                                     <a href="" class="ml-1 border-white border-4 rounded-full cursor-pointer mr-4">
                                         <img src="./public/images/linkedin.png" alt="facebook" class="object-cover">
                                     </a>
@@ -887,13 +921,12 @@
 
         <!-- ================ what client says section start -->
 
-        <section class="text-gray-600 body-font h-auto w-full mb-40" oncontextmenu="return false;">
+        <section class="text-gray-600 body-font h-auto w-full mb-6" oncontextmenu="return false;">
             <div class="container px-6 pt-14  mx-auto -space-y-16">
                 <div class="flex flex-wrap w-full mb-32">
-                    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold">What Clients Say About Us..
-                        </h1>
-                        <div class="h-1 w-20 bg-sky-600 rounded"></div>
+                    <div class=" w-full mb-6 lg:mb-0">
+                        <h1 class="sm:text-4xl text-2xl   mb-2 text-black font-semibold text-center ">What Client Says <span class="border-b-4 border-sky-600">About Us</span></h1>
+            
                     </div>
                 </div>
                 <div id="owl-demo3" class="owl-carousel owl-theme">
@@ -1050,7 +1083,64 @@
         </section>
 
 
-        <!-- ==================end what client says section -->
+        <!-- ==================end what client says section ======================-->
+
+
+        <!-- =============== start our client=================== -->
+        <section class="text-gray-600 body-font h-auto w-full mb-36" oncontextmenu="return false;">
+            <div class="container px-6 pt-20  mx-auto -space-y-16">
+                <div id="owl-demo-client" class="owl-carousel owl-theme">
+                    <!-- start for loop in php -->
+                    <!-- ============single project card start==================  -->
+                    <a href="">
+                        <div class="bg-white w-auto h-44 relative shadow-lg">
+                            <div class="absolute left-[32%] top-[26%]">
+                                <img src="./public/images/client-logo1.svg" alt="" class="object-cover">
+                            </div>
+                        </div>
+                    </a>
+                    <!-- ===============end single project card==================== -->
+                    <a href="">
+                        <div class="bg-white w-auto h-44 relative shadow-lg">
+                            <div class="absolute left-[32%] top-[26%]">
+                                <img src="./public/images/client-logo2.svg" alt="" class="object-cover">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="bg-white w-auto h-44 relative shadow-lg">
+                            <div class="absolute left-[32%] top-[26%]">
+                                <img src="./public/images/client-logo3.svg" alt="" class="object-cover">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="bg-white w-auto h-44 relative shadow-lg">
+                            <div class="absolute left-[32%] top-[26%]">
+                                <img src="./public/images/client-logo4.svg" alt="" class="object-cover">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="bg-white w-auto h-44 relative shadow-lg">
+                            <div class="absolute left-[32%] top-[26%]">
+                                <img src="./public/images/client-logo1.svg" alt="" class="object-cover">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="bg-white w-auto h-44 relative shadow-lg">
+                            <div class="absolute left-[32%] top-[26%]">
+                                <img src="./public/images/client-logo2.svg" alt="" class="object-cover">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================end our client section====================== -->
+
 
 
 
@@ -1216,7 +1306,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-sky-600 text-white  w-full">
+            <div class="bg-gradient-to-r from-sky-600 to-sky-900 text-white  w-full">
                 <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
                     <p class="text-white text-md text-center sm:text-left">© 2023 Created By
                         <a href="https://twitter.com/knyttneve" rel="noopener noreferrer"
@@ -1365,6 +1455,23 @@
             $("#owl-demo4").owlCarousel({
                 navigation: true,
                 autoPlay: true,
+                items: 4,
+                navigation: false,
+                responsive: true,
+                itemsDesktop: [1199, 4],
+                itemsDesktopSmall: [980, 3],
+                itemsTablet: [768, 2],
+                itemsMobile: [479, 1]
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo-client").owlCarousel({
+                navigation: true,
+                autoPlay: true,
+                slideSpeed:500,
                 items: 4,
                 navigation: false,
                 responsive: true,
